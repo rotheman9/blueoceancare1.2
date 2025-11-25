@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+
+    <meta charset="utf-8"/>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <title>Blue Ocean Care - Compassionate Residential Services</title>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&amp;display=swap" rel="stylesheet"/>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <style type="text/tailwindcss">
+
+        @layer base {
+
+            :root {
+
+                --c-primary: 25 109 184;
+
+                --c-background: 248 250 252;
+
+                --c-surface: 255 255 255;
+
+                --c-text-primary: 30 41 59;
+
+                --c-text-secondary: 71 85 105;
+
+            }
+
+            .dark:root {
+
+                --c-primary: 25 109 184;
+
+                --c-background: 15 23 42;
+
+                --c-surface: 30 41 59;
+
+                --c-text-primary: 248 250 252;
+
+                --c-text-secondary: 148 163 184;
+
+            }
+
+        }
+
+        /* Fade animation for page transitions */
+
+        .page-enter {
+
+            animation: fadeIn 0.3s ease-in-out;
+
+        }
+
+        @keyframes fadeIn {
+
+            from { opacity: 0; transform: translateY(10px); }
+
+            to { opacity: 1; transform: translateY(0); }
+
+        }
+
+    </style>
+
+    <script>
+
+        tailwind.config = {
+
+            darkMode: "class",
+
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        primary: 'rgb(var(--c-primary) / <alpha-value>)',
+
+                        background: 'rgb(var(--c-background) / <alpha-value>)',
+
+                        surface: 'rgb(var(--c-surface) / <alpha-value>)',
+
+                        'text-primary': 'rgb(var(--c-text-primary) / <alpha-value>)',
+
+                        'text-secondary': 'rgb(var(--c-text-secondary) / <alpha-value>)',
+
+                    },
+
+                    fontFamily: {
+
+                        sans: ["Inter", "sans-serif"],
+
+                    },
+
+                },
+
+            },
+
+        };
+
+    </script>
+
+</head>
+
+<body class="bg-background font-sans text-text-secondary antialiased flex flex-col min-h-screen">
+
+
+
+    <!-- Header -->
+
+    <header class="fixed top-0 left-0 right-0 z-50 p-4 transition-all duration-300" id="main-header">
+
+        <div class="container mx-auto max-w-7xl">
+
+            <nav class="flex items-center justify-between bg-surface/90 dark:bg-slate-900/90 backdrop-blur-md p-4 rounded-xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+
+                <a class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
+
+                    <span class="bg-primary flex items-center justify-center p-2 rounded-lg">
+
+                        <span class="material-symbols-outlined text-white" style="font-size: 20px;">waves</span>
+
+                    </span>
+
+                    <div>
+
+                        <h1 class="font-bold text-lg text-text-primary leading-tight">Blue Ocean Care</h1>
+
+                        <p class="text-[10px] uppercase tracking-wider font-semibold text-text-secondary">Compassionate Residential Services</p>
+
+                    </div>
+
+                </a>
+
+                
+
+                <!-- Desktop Nav -->
+
+                <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-text-primary">
+
+                    <a class="nav-link hover:text-primary transition-colors cursor-pointer" data-target="home" onclick="navigateTo('home')">Home</a>
+
+                    <a class="nav-link hover:text-primary transition-colors cursor-pointer" data-target="about" onclick="navigateTo('about')">About Us</a>
+
+                    <a class="nav-link hover:text-primary transition-colors cursor-pointer" data-target="services" onclick="navigateTo('services')">Services</a>
+
+                    <a class="nav-link hover:text-primary transition-colors cursor-pointer" data-target="admissions" onclick="navigateTo('admissions')">Admissions</a>
+
+                    <a class="nav-link hover:text-primary transition-colors cursor-pointer" data-target="contact" onclick="navigateTo('contact')">Contact</a>
+
+                </div>
+
+                
+
+                <div class="hidden lg:flex items-center gap-4">
+
+                    <a class="bg-primary text-white font-semibold px-5 py-2.5 rounded-lg text-sm hover:opacity-90 transition-opacity shadow-md shadow-blue-500/20 cursor-pointer" onclick="navigateTo('admissions')">Get Started</a>
+
+                </div>
+
+
+
+                <!-- Mobile Menu Button -->
+
+                <button class="lg:hidden text-text-primary p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+
+                    <span class="material-symbols-outlined">menu</span>
+
+                </button>
+
+            </nav>
+
+            
+
+            <!-- Mobile Menu -->
+
+            <div id="mobile-menu" class="hidden absolute top-full left-4 right-4 mt-2 bg-surface dark:bg-slate-900 p-4 rounded-xl border border-slate-200 shadow-xl flex flex-col gap-4 lg:hidden">
+
+                 <a class="nav-link-mobile p-2 hover:bg-slate-50 rounded-lg cursor-pointer" onclick="navigateTo('home'); toggleMobileMenu()">Home</a>
+
+                 <a class="nav-link-mobile p-2 hover:bg-slate-50 rounded-lg cursor-pointer" onclick="navigateTo('about'); toggleMobileMenu()">About Us</a>
+
+                 <a class="nav-link-mobile p-2 hover:bg-slate-50 rounded-lg cursor-pointer" onclick="navigateTo('services'); toggleMobileMenu()">Services</a>
+
+                 <a class="nav-link-mobile p-2 hover:bg-slate-50 rounded-lg cursor-pointer" onclick="navigateTo('admissions'); toggleMobileMenu()">Admissions</a>
+
+                 <a class="nav-link-mobile p-2 hover:bg-slate-50 rounded-lg cursor-pointer" onclick="navigateTo('contact'); toggleMobileMenu()">Contact</a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- Main Content Area (Dynamic) -->
+
+    <main class="flex-grow pt-[88px]" id="main-content">
+
+        <!-- Content injected via JS -->
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer class="bg-slate-800 dark:bg-slate-950 text-slate-400 mt-auto">
+
+        <div class="container mx-auto max-w-7xl px-4 py-16">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <div class="md:col-span-2 lg:col-span-1">
+
+                    <a class="flex items-center gap-3 mb-6 cursor-pointer" onclick="navigateTo('home')">
+
+                        <span class="bg-primary p-2 rounded-lg flex items-center justify-center">
+
+                            <span class="material-symbols-outlined text-white" style="font-size: 20px;">waves</span>
+
+                        </span>
+
+                        <div>
+
+                            <h3 class="font-bold text-lg text-white">Blue Ocean Care</h3>
+
+                            <p class="text-xs text-slate-400">Compassionate Care</p>
+
+                        </div>
+
+                    </a>
+
+                    <p class="text-sm leading-relaxed mb-6">
+
+                        Providing holistic, person-centered 24-hour residential care for individuals with intellectual and developmental disabilities throughout Oregon.
+
+                    </p>
+
+                    <div class="flex gap-4">
+
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors text-white">
+
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path></svg>
+
+                        </a>
+
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors text-white">
+
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465 1.067-.047 1.407-.06 4.123-.06h.08v.001zm0 2.225h.005c-2.643 0-2.974.01-3.799.048-.838.037-1.296.17-1.625.297-.417.162-.716.357-1.03.67-.314.314-.508.613-.67 1.03-.127.329-.26.787-.297 1.625-.038.825-.048 1.156-.048 3.8v.005c0 2.644.01 2.975.048 3.8.037.838.17 1.296.297 1.625.162.417.357.716.67 1.03.314.314.613.508 1.03.67.329.127.787.26 1.625.297.825.038 1.156.048 3.8.048h.005c2.644 0 2.975-.01 3.8-.048.838-.037 1.296-.17 1.625-.297.417-.162.716-.357 1.03-.67.314-.314.508-.613.67-1.03.127-.329.26-.787.297-1.625.038-.825.048-1.156.048-3.8v-.005c0-2.644-.01-2.975-.048-3.8-.037-.838-.17-1.296-.297-1.625-.162-.417-.357-.716-.67-1.03-.314-.314-.613-.508-1.03-.67-.329-.127-.787-.26-1.625-.297-.825-.038-1.156-.048-3.8-.048zM12.315 7.41a4.905 4.905 0 110 9.81 4.905 4.905 0 010-9.81zm0 2.225a2.68 2.68 0 100 5.36 2.68 2.68 0 000-5.36zm5.836-3.824a1.125 1.125 0 110 2.25 1.125 1.125 0 010-2.25z" clip-rule="evenodd"></path></svg>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+
+                    <ul class="space-y-2 text-sm">
+
+                        <li><a class="hover:text-white transition-colors cursor-pointer" onclick="navigateTo('about')">About Us</a></li>
+
+                        <li><a class="hover:text-white transition-colors cursor-pointer" onclick="navigateTo('services')">Our Services</a></li>
+
+                        <li><a class="hover:text-white transition-colors cursor-pointer" onclick="navigateTo('admissions')">Admissions &amp; Referrals</a></li>
+
+                        <li><a class="hover:text-white transition-colors cursor-pointer" onclick="navigateTo('contact')">Careers</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div>
+
+                    <h4 class="font-semibold text-white mb-4">Our Services</h4>
+
+                    <ul class="space-y-2 text-sm">
+
+                        <li><a class="hover:text-white transition-colors cursor-pointer" onclick="navigateTo('services')">24-Hour Residential Care</a></li>
+
+                        <li><a class="hover:text-white transition-colors cursor-pointer" onclick="navigateTo('services')">Behavioral Support</a></li>
+
+                        <li><a class="hover:text-white transition-colors cursor-pointer" onclick="navigateTo('services')">Medical Coordination</a></li>
+
+                        <li><a class="hover:text-white transition-colors cursor-pointer" onclick="navigateTo('services')">Community Inclusion</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div>
+
+                    <h4 class="font-semibold text-white mb-4">Contact Us</h4>
+
+                    <ul class="space-y-3 text-sm">
+
+                        <li class="flex items-start gap-3">
+
+                            <span class="material-symbols-outlined text-primary mt-0.5 text-base">location_on</span>
+
+                            <span>12670 SW Karen street<br/>Tigard, Oregon 97223</span>
+
+                        </li>
+
+                        <li class="flex items-center gap-3">
+
+                            <span class="material-symbols-outlined text-primary text-base">call</span>
+
+                            <a class="hover:text-white transition-colors" href="tel:5034301324">(503) 430-1324</a>
+
+                        </li>
+
+                        <li class="flex items-center gap-3">
+
+                            <span class="material-symbols-outlined text-primary text-base">email</span>
+
+                            <a class="hover:text-white transition-colors" href="mailto:referrals@blueoceancare.org">referrals@blueoceancare.org</a>
+
+                        </li>
+
+                        <li class="flex items-center gap-3">
+
+                            <span class="material-symbols-outlined text-primary text-base">schedule</span>
+
+                            <span>Mon-Fri: 8am - 5pm</span>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-700 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center text-sm">
+
+                <p>© 2024 Blue Ocean Care. All rights reserved.</p>
+
+                <p class="mt-4 sm:mt-0">Serving the Oregon IDD community</p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script>
+
+        // Content Data Store
+
+        const content = {
+
+            home: `
+
+            <section class="relative h-[700px] w-full flex items-center justify-start text-left page-enter">
+
+                <div class="absolute inset-0">
+
+                    <img alt="Support worker providing compassionate care to an individual with developmental disabilities in a residential setting" class="w-full h-full object-cover" src="images/hero1.png"/>
+
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30"></div>
+
+                </div>
+
+                <div class="relative z-10 container mx-auto px-4 max-w-7xl">
+
+                    <div class="max-w-xl">
+
+                        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+
+                            Compassionate Care for Every Stage of Life
+
+                        </h1>
+
+                        <p class="text-lg text-slate-200 mb-10">
+
+                            We provide holistic, person-centered 24-hour residential care for individuals with intellectual and developmental disabilities throughout Oregon.
+
+                        </p>
+
+                        <div class="flex flex-wrap items-center gap-4">
+
+                            <button onclick="navigateTo('services')" class="bg-primary text-white font-bold px-8 py-3 rounded-lg hover:opacity-90 transition-opacity text-base shadow-lg shadow-blue-900/20">
+
+                                Our Services
+
+                            </button>
+
+                            <button onclick="navigateTo('admissions')" class="bg-surface/90 text-text-primary font-bold px-8 py-3 rounded-lg hover:bg-surface transition-colors text-base">
+
+                                Refer a Client
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <section class="py-20 sm:py-28 page-enter">
+
+                <div class="container mx-auto max-w-7xl px-4 text-center">
+
+                    <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-5">Our Commitment to Excellence</h2>
+
+                    <p class="max-w-3xl mx-auto text-lg text-text-secondary mb-16">
+
+                        We are dedicated to providing comprehensive care that integrates behavioral support, medical coordination, and community inclusion for all ages.
+
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                        <div class="bg-surface border border-slate-200 dark:border-slate-800 p-8 rounded-xl text-left hover:shadow-lg transition-shadow">
+
+                            <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 mb-5">
+
+                                <span class="material-symbols-outlined text-primary">favorite</span>
+
+                            </div>
+
+                            <h3 class="text-xl font-semibold text-text-primary mb-2">Compassionate</h3>
+
+                            <p class="text-text-secondary">Every interaction is guided by empathy, respect, and genuine care for each individual we serve.</p>
+
+                        </div>
+
+                        <div class="bg-surface border border-slate-200 dark:border-slate-800 p-8 rounded-xl text-left hover:shadow-lg transition-shadow">
+
+                            <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 mb-5">
+
+                                <span class="material-symbols-outlined text-primary">groups</span>
+
+                            </div>
+
+                            <h3 class="text-xl font-semibold text-text-primary mb-2">Person-Centered</h3>
+
+                            <p class="text-text-secondary">We tailor our approach to meet the unique needs, preferences, and goals of each person.</p>
+
+                        </div>
+
+                        <div class="bg-surface border border-slate-200 dark:border-slate-800 p-8 rounded-xl text-left hover:shadow-lg transition-shadow">
+
+                            <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 mb-5">
+
+                                <span class="material-symbols-outlined text-primary">schedule</span>
+
+                            </div>
+
+                            <h3 class="text-xl font-semibold text-text-primary mb-2">24/7 Support</h3>
+
+                            <p class="text-text-secondary">Round-the-clock residential care ensures safety, stability, and continuous support.</p>
+
+                        </div>
+
+                        <div class="bg-surface border border-slate-200 dark:border-slate-800 p-8 rounded-xl text-left hover:shadow-lg transition-shadow">
+
+                            <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 mb-5">
+
+                                <span class="material-symbols-outlined text-primary">shield</span>
+
+                            </div>
+
+                            <h3 class="text-xl font-semibold text-text-primary mb-2">Professional</h3>
+
+                            <p class="text-text-secondary">Experienced staff trained in best practices for intellectual and developmental disabilities care.</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <section class="py-20 sm:py-28 bg-surface dark:bg-slate-900/50 page-enter">
+
+                <div class="container mx-auto max-w-7xl px-4">
+
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                        <div>
+
+                            <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-6">Comprehensive Residential Services</h2>
+
+                            <p class="text-lg text-text-secondary mb-10">Our 24-hour residential care program is designed to support individuals with intellectual and developmental disabilities in achieving their fullest potential while maintaining safety, dignity, and quality of life.</p>
+
+                            <ul class="space-y-6">
+
+                                <li class="flex items-start gap-4">
+
+                                    <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+
+                                    <div>
+
+                                        <h4 class="font-semibold text-text-primary text-base">Activities of Daily Living (ADL) Support</h4>
+
+                                        <p class="text-text-secondary">Personal care, hygiene, nutrition, and daily routines.</p>
+
+                                    </div>
+
+                                </li>
+
+                                <li class="flex items-start gap-4">
+
+                                    <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+
+                                    <div>
+
+                                        <h4 class="font-semibold text-text-primary text-base">Medication Administration</h4>
+
+                                        <p class="text-text-secondary">Safe, supervised medication management and coordination.</p>
+
+                                    </div>
+
+                                </li>
+
+                                <li class="flex items-start gap-4">
+
+                                    <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+
+                                    <div>
+
+                                        <h4 class="font-semibold text-text-primary text-base">Behavioral Support</h4>
+
+                                        <p class="text-text-secondary">Evidence-based interventions and positive behavior supports.</p>
+
+                                    </div>
+
+                                </li>
+
+                                <li class="flex items-start gap-4">
+
+                                    <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+
+                                    <div>
+
+                                        <h4 class="font-semibold text-text-primary text-base">Community Integration</h4>
+
+                                        <p class="text-text-secondary">Opportunities for social engagement and community participation.</p>
+
+                                    </div>
+
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                        <div class="space-y-6">
+
+                            <div class="border border-slate-200 dark:border-slate-800 p-6 rounded-xl bg-white dark:bg-slate-900 shadow-sm">
+
+                                <h4 class="font-bold text-primary text-lg mb-2">Children &amp; Adolescents</h4>
+
+                                <p class="text-text-secondary">Specialized care for young people with developmental disabilities, focusing on growth, learning, and family involvement.</p>
+
+                            </div>
+
+                            <div class="border border-slate-200 dark:border-slate-800 p-6 rounded-xl bg-white dark:bg-slate-900 shadow-sm">
+
+                                <h4 class="font-bold text-primary text-lg mb-2">Adults</h4>
+
+                                <p class="text-text-secondary">Comprehensive support for adults with intellectual disabilities, promoting independence and community participation.</p>
+
+                            </div>
+
+                            <div class="border border-slate-200 dark:border-slate-800 p-6 rounded-xl bg-white dark:bg-slate-900 shadow-sm">
+
+                                <h4 class="font-bold text-primary text-lg mb-2">Complex Medical Needs</h4>
+
+                                <p class="text-text-secondary">Specialized care coordination for individuals requiring additional medical supervision and support.</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            
+
+            <section class="py-20 sm:py-28 bg-primary page-enter">
+
+                <div class="container mx-auto max-w-4xl px-4 text-center">
+
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Get Started?</h2>
+
+                    <p class="text-lg text-blue-100 mb-10">
+
+                        Whether you're a family seeking care, a case manager making a referral, or a professional looking to join our team, we're here to help.
+
+                    </p>
+
+                    <div class="flex flex-wrap justify-center gap-4">
+
+                        <button onclick="navigateTo('admissions')" class="bg-white text-primary font-bold px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors">
+
+                            Start a Referral
+
+                        </button>
+
+                        <button onclick="navigateTo('contact')" class="bg-white/20 text-white font-bold px-6 py-3 rounded-lg hover:bg-white/30 transition-colors">
+
+                            Join Our Team
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            `,
+
+            about: `
+
+            <section class="bg-surface dark:bg-slate-900/50 py-16 page-enter">
+
+                <div class="container mx-auto max-w-3xl px-4 text-center">
+
+                    <span class="bg-primary/10 text-primary font-bold py-1 px-3 rounded-full text-sm inline-block mb-4">Our Story</span>
+
+                    <h2 class="text-3xl md:text-5xl font-bold text-text-primary mb-6">Founded on Compassion</h2>
+
+                    <p class="text-lg text-text-secondary leading-relaxed">
+
+                        Blue Ocean Care was founded with a simple yet powerful belief: that every individual with intellectual and developmental disabilities deserves compassionate, comprehensive care that honors their unique needs and potential. Our founders, experienced professionals in the IDD field, recognized the need for a residential care provider that truly integrates behavioral support, medical coordination, and community inclusion in a holistic approach to care.
+
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <section class="py-16 md:py-24 page-enter">
+
+                <div class="container mx-auto max-w-7xl px-4">
+
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+                         <div class="relative">
+
+                            <img alt="Residential Care Home Exterior" src="images/home1.png" class="rounded-2xl shadow-xl w-full object-cover h-[400px]">
+
+                        </div>
+
+                        <div>
+
+                            <h3 class="text-3xl font-bold text-text-primary mb-6">Our Mission & Vision</h3>
+
+                            <div class="space-y-6">
+
+                                <div class="p-6 bg-surface border border-slate-200 dark:border-slate-800 rounded-xl">
+
+                                    <h4 class="text-xl font-bold text-primary mb-2">Our Mission</h4>
+
+                                    <p class="text-text-secondary">To provide compassionate, comprehensive 24-hour residential care that empowers individuals with intellectual and developmental disabilities to live their fullest, most independent lives while ensuring safety, dignity, and quality of life.</p>
+
+                                </div>
+
+                                <div class="p-6 bg-surface border border-slate-200 dark:border-slate-800 rounded-xl">
+
+                                    <h4 class="text-xl font-bold text-primary mb-2">Our Vision</h4>
+
+                                    <p class="text-text-secondary">A community where every individual with intellectual and developmental disabilities is valued, supported, and has the opportunity to thrive in a safe, nurturing environment that celebrates their unique strengths and potential.</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <section class="bg-slate-50 dark:bg-slate-900 py-16 md:py-24 page-enter">
+
+                <div class="container mx-auto max-w-7xl px-4">
+
+                    <div class="text-center mb-16">
+
+                        <h2 class="text-3xl font-bold text-text-primary mb-4">Our Values</h2>
+
+                        <p class="text-text-secondary max-w-2xl mx-auto">These core principles guide every decision we make and every interaction we have with our residents, families, and staff.</p>
+
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm text-center">
+
+                            <div class="w-12 h-12 bg-blue-100 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+
+                                <span class="material-symbols-outlined">favorite</span>
+
+                            </div>
+
+                            <h4 class="font-bold text-text-primary mb-2">Compassion</h4>
+
+                            <p class="text-sm text-text-secondary">Every action guided by empathy.</p>
+
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm text-center">
+
+                            <div class="w-12 h-12 bg-blue-100 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+
+                                <span class="material-symbols-outlined">diversity_3</span>
+
+                            </div>
+
+                            <h4 class="font-bold text-text-primary mb-2">Respect</h4>
+
+                            <p class="text-sm text-text-secondary">Honoring individual dignity.</p>
+
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm text-center">
+
+                            <div class="w-12 h-12 bg-blue-100 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+
+                                <span class="material-symbols-outlined">star</span>
+
+                            </div>
+
+                            <h4 class="font-bold text-text-primary mb-2">Excellence</h4>
+
+                            <p class="text-sm text-text-secondary">Commitment to quality care.</p>
+
+                        </div>
+
+                         <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm text-center">
+
+                            <div class="w-12 h-12 bg-blue-100 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+
+                                <span class="material-symbols-outlined">accessibility_new</span>
+
+                            </div>
+
+                            <h4 class="font-bold text-text-primary mb-2">Inclusion</h4>
+
+                            <p class="text-sm text-text-secondary">Celebrating diversity.</p>
+
+                        </div>
+
+                         <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm text-center">
+
+                            <div class="w-12 h-12 bg-blue-100 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+
+                                <span class="material-symbols-outlined">trending_up</span>
+
+                            </div>
+
+                            <h4 class="font-bold text-text-primary mb-2">Growth</h4>
+
+                            <p class="text-sm text-text-secondary">Supporting personal development.</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            `,
+
+            services: `
+
+            <section class="bg-primary py-20 text-center page-enter">
+
+                <div class="container mx-auto px-4">
+
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Our Services</h1>
+
+                    <p class="text-xl text-blue-100 max-w-3xl mx-auto">Our 24-hour residential care program provides round-the-clock support in a home-like environment where individuals can feel safe, valued, and empowered.</p>
+
+                </div>
+
+            </section>
+
+
+
+            <section class="py-20 page-enter">
+
+                <div class="container mx-auto max-w-7xl px-4">
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                        <div class="bg-surface border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+
+                            <div class="bg-blue-50 dark:bg-slate-800 p-6">
+
+                                <span class="material-symbols-outlined text-4xl text-primary mb-4">home_health</span>
+
+                                <h3 class="text-xl font-bold text-text-primary">24-Hour Residential Care</h3>
+
+                            </div>
+
+                            <div class="p-6">
+
+                                <ul class="space-y-3 text-text-secondary">
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Licensed residential care facility</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Trained and certified staff 24/7</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Person-centered care planning</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Safe, accessible living environments</li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="bg-surface border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+
+                            <div class="bg-blue-50 dark:bg-slate-800 p-6">
+
+                                <span class="material-symbols-outlined text-4xl text-primary mb-4">self_improvement</span>
+
+                                <h3 class="text-xl font-bold text-text-primary">Activities of Daily Living</h3>
+
+                            </div>
+
+                            <div class="p-6">
+
+                                <ul class="space-y-3 text-text-secondary">
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Personal hygiene and grooming</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Meal planning and nutrition</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Household tasks and life skills</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Transportation coordination</li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+
+
+                         <div class="bg-surface border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+
+                            <div class="bg-blue-50 dark:bg-slate-800 p-6">
+
+                                <span class="material-symbols-outlined text-4xl text-primary mb-4">medical_services</span>
+
+                                <h3 class="text-xl font-bold text-text-primary">Medical Coordination</h3>
+
+                            </div>
+
+                            <div class="p-6">
+
+                                <ul class="space-y-3 text-text-secondary">
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Medication administration</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Healthcare appointment coordination</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Communication with providers</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Health status monitoring</li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+
+
+                         <div class="bg-surface border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+
+                            <div class="bg-blue-50 dark:bg-slate-800 p-6">
+
+                                <span class="material-symbols-outlined text-4xl text-primary mb-4">psychology</span>
+
+                                <h3 class="text-xl font-bold text-text-primary">Behavioral Support</h3>
+
+                            </div>
+
+                            <div class="p-6">
+
+                                <ul class="space-y-3 text-text-secondary">
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Positive behavior intervention</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Crisis prevention and de-escalation</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Social skills development</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Emotional regulation support</li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="bg-surface border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+
+                            <div class="bg-blue-50 dark:bg-slate-800 p-6">
+
+                                <span class="material-symbols-outlined text-4xl text-primary mb-4">diversity_2</span>
+
+                                <h3 class="text-xl font-bold text-text-primary">Community Integration</h3>
+
+                            </div>
+
+                            <div class="p-6">
+
+                                <ul class="space-y-3 text-text-secondary">
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Community activity participation</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Social relationship development</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Recreational and leisure activities</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Volunteer and employment support</li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                        
+
+                         <div class="bg-surface border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+
+                            <div class="bg-blue-50 dark:bg-slate-800 p-6">
+
+                                <span class="material-symbols-outlined text-4xl text-primary mb-4">admin_panel_settings</span>
+
+                                <h3 class="text-xl font-bold text-text-primary">Safety & Supervision</h3>
+
+                            </div>
+
+                            <div class="p-6">
+
+                                <ul class="space-y-3 text-text-secondary">
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> 24/7 safety monitoring</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Environmental safety assessments</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Emergency response procedures</li>
+
+                                    <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span> Risk management planning</li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+             <section class="bg-slate-50 dark:bg-slate-900 py-16 md:py-24 page-enter">
+
+                <div class="container mx-auto max-w-7xl px-4">
+
+                     <div class="text-center mb-16">
+
+                        <h2 class="text-3xl font-bold text-text-primary mb-4">Specialized Populations</h2>
+
+                        <p class="text-text-secondary max-w-2xl mx-auto">We provide tailored support for diverse needs across all age groups.</p>
+
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+
+                        <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-sm border-l-4 border-primary">
+
+                            <h3 class="text-xl font-bold text-text-primary mb-3">Pediatric & Adolescent Care</h3>
+
+                            <p class="text-text-secondary mb-4">Specialized care for children and teenagers with intellectual and developmental disabilities.</p>
+
+                             <ul class="space-y-2 text-sm text-text-secondary">
+
+                                <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary mt-2"></span> Age-appropriate developmental activities</li>
+
+                                <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary mt-2"></span> Educational support and school coordination</li>
+
+                                <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary mt-2"></span> Family involvement and support</li>
+
+                             </ul>
+
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-sm border-l-4 border-purple-500">
+
+                            <h3 class="text-xl font-bold text-text-primary mb-3">Complex Behavioral Needs</h3>
+
+                             <p class="text-text-secondary mb-4">Enhanced support for individuals requiring intensive behavioral intervention.</p>
+
+                             <ul class="space-y-2 text-sm text-text-secondary">
+
+                                <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2"></span> One-on-one behavioral intervention</li>
+
+                                <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2"></span> Specialized staff training and expertise</li>
+
+                                <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2"></span> Intensive crisis prevention strategies</li>
+
+                             </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            `,
+
+            admissions: `
+
+             <section class="bg-surface dark:bg-slate-900/50 py-16 page-enter">
+
+                <div class="container mx-auto max-w-4xl px-4">
+
+                    <div class="text-center mb-12">
+
+                         <h1 class="text-3xl md:text-5xl font-bold text-text-primary mb-6">Admissions & Referrals</h1>
+
+                         <p class="text-lg text-text-secondary">We've streamlined our referral process to make it as simple and clear as possible for families, case managers, and referring agencies.</p>
+
+                    </div>
+
+                    
+
+                    <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-8 shadow-sm mb-12">
+
+                        <h3 class="text-xl font-bold text-text-primary mb-6 border-b border-slate-100 dark:border-slate-700 pb-4">Eligibility Criteria</h3>
+
+                         <ul class="space-y-4">
+
+                            <li class="flex items-start gap-3">
+
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+
+                                <span class="text-text-secondary">Diagnosed intellectual or developmental disability.</span>
+
+                            </li>
+
+                            <li class="flex items-start gap-3">
+
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+
+                                <span class="text-text-secondary">Need for 24-hour residential supervision and support.</span>
+
+                            </li>
+
+                            <li class="flex items-start gap-3">
+
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+
+                                <span class="text-text-secondary">Oregon resident with approved funding (K-Plan, Waiver).</span>
+
+                            </li>
+
+                            <li class="flex items-start gap-3">
+
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+
+                                <span class="text-text-secondary">Referral from qualified case manager or agency.</span>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+
+                    <h3 class="text-2xl font-bold text-text-primary mb-8 text-center">The Referral Process</h3>
+
+                    <div class="grid gap-6 md:grid-cols-2 page-enter">
+
+                        <div class="flex gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-white transition-colors border border-transparent hover:border-slate-200">
+
+                            <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+
+                            <div>
+
+                                <h4 class="font-bold text-text-primary mb-1">Initial Contact</h4>
+
+                                <p class="text-sm text-text-secondary">Contact our admissions team by phone or email to discuss needs and availability.</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="flex gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-white transition-colors border border-transparent hover:border-slate-200">
+
+                            <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+
+                            <div>
+
+                                <h4 class="font-bold text-text-primary mb-1">Information Gathering</h4>
+
+                                <p class="text-sm text-text-secondary">Complete referral forms and provide necessary documentation and assessments.</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="flex gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-white transition-colors border border-transparent hover:border-slate-200">
+
+                            <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+
+                            <div>
+
+                                <h4 class="font-bold text-text-primary mb-1">Assessment & Review</h4>
+
+                                <p class="text-sm text-text-secondary">Our team reviews information and conducts assessment to determine fit.</p>
+
+                            </div>
+
+                        </div>
+
+                         <div class="flex gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-white transition-colors border border-transparent hover:border-slate-200">
+
+                            <div class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
+
+                            <div>
+
+                                <h4 class="font-bold text-text-primary mb-1">Admission Planning</h4>
+
+                                <p class="text-sm text-text-secondary">If accepted, we work together to plan a smooth transition.</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="mt-16 bg-blue-50 dark:bg-slate-800 p-8 rounded-2xl text-center">
+
+                        <h3 class="text-xl font-bold text-text-primary mb-4">Ready to Start a Referral?</h3>
+
+                        <p class="text-text-secondary mb-8">Contact our admissions team today to begin the process or ask any questions.</p>
+
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
+
+                             <a href="tel:5034301324" class="inline-flex items-center justify-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity">
+
+                                <span class="material-symbols-outlined text-sm">call</span> (503) 430-1324
+
+                            </a>
+
+                            <a href="mailto:referrals@blueoceancare.org" class="inline-flex items-center justify-center gap-2 bg-white text-primary border border-primary font-bold px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors">
+
+                                <span class="material-symbols-outlined text-sm">email</span> Email Admissions
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            `,
+
+            contact: `
+
+             <section class="py-16 md:py-24 page-enter">
+
+                <div class="container mx-auto max-w-7xl px-4">
+
+                    <div class="text-center mb-16">
+
+                        <h1 class="text-4xl md:text-5xl font-bold text-text-primary mb-6">Contact Us</h1>
+
+                        <p class="text-lg text-text-secondary max-w-2xl mx-auto">We're here to answer your questions, discuss our services, and help you determine if Blue Ocean Care is the right fit for your needs.</p>
+
+                    </div>
+
+
+
+                    <div class="grid lg:grid-cols-3 gap-8">
+
+                        <!-- Contact Info Cards -->
+
+                        <div class="space-y-6">
+
+                            <div class="bg-surface p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+
+                                <div class="w-12 h-12 bg-blue-100 text-primary rounded-lg flex items-center justify-center mb-4">
+
+                                    <span class="material-symbols-outlined">call</span>
+
+                                </div>
+
+                                <h3 class="font-bold text-lg text-text-primary mb-1">Phone</h3>
+
+                                <p class="text-sm text-text-secondary mb-4">Monday - Friday, 8am - 5pm</p>
+
+                                <a href="tel:5034301324" class="text-primary font-semibold hover:underline text-lg">(503) 430-1324</a>
+
+                                <p class="text-xs text-red-500 mt-2 font-medium">*24/7 Emergency Support Available</p>
+
+                            </div>
+
+
+
+                             <div class="bg-surface p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+
+                                <div class="w-12 h-12 bg-blue-100 text-primary rounded-lg flex items-center justify-center mb-4">
+
+                                    <span class="material-symbols-outlined">email</span>
+
+                                </div>
+
+                                <h3 class="font-bold text-lg text-text-primary mb-1">Email</h3>
+
+                                <p class="text-sm text-text-secondary mb-4">For referrals and general inquiries</p>
+
+                                <a href="mailto:referrals@blueoceancare.org" class="text-primary font-semibold hover:underline block mb-1">referrals@blueoceancare.org</a>
+
+                            </div>
+
+
+
+                             <div class="bg-surface p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+
+                                <div class="w-12 h-12 bg-blue-100 text-primary rounded-lg flex items-center justify-center mb-4">
+
+                                    <span class="material-symbols-outlined">location_on</span>
+
+                                </div>
+
+                                <h3 class="font-bold text-lg text-text-primary mb-1">Office Location</h3>
+
+                                <p class="text-text-secondary">
+
+                                    12670 SW Karen street<br>
+
+                                    Tigard, Oregon 97223
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Contact Form -->
+
+                        <div class="lg:col-span-2 bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+
+                            <h3 class="text-2xl font-bold text-text-primary mb-6">Send us a Message</h3>
+
+                            <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you for your message. We will contact you shortly.');">
+
+                                <div class="grid md:grid-cols-2 gap-6">
+
+                                    <div>
+
+                                        <label class="block text-sm font-medium text-text-primary mb-2">First Name</label>
+
+                                        <input type="text" class="w-full rounded-lg border-slate-300 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary" placeholder="John">
+
+                                    </div>
+
+                                    <div>
+
+                                        <label class="block text-sm font-medium text-text-primary mb-2">Last Name</label>
+
+                                        <input type="text" class="w-full rounded-lg border-slate-300 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary" placeholder="Doe">
+
+                                    </div>
+
+                                </div>
+
+                                <div>
+
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Email Address</label>
+
+                                    <input type="email" class="w-full rounded-lg border-slate-300 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary" placeholder="john@example.com">
+
+                                </div>
+
+                                <div>
+
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Subject</label>
+
+                                    <select class="w-full rounded-lg border-slate-300 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary">
+
+                                        <option>General Inquiry</option>
+
+                                        <option>Admissions / Referral</option>
+
+                                        <option>Careers</option>
+
+                                        <option>Other</option>
+
+                                    </select>
+
+                                </div>
+
+                                <div>
+
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Message</label>
+
+                                    <textarea rows="4" class="w-full rounded-lg border-slate-300 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary" placeholder="How can we help you?"></textarea>
+
+                                </div>
+
+                                <button type="submit" class="w-full md:w-auto bg-primary text-white font-bold px-8 py-3 rounded-lg hover:opacity-90 transition-opacity">
+
+                                    Send Message
+
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            `
+
+        };
+
+
+
+        // Navigation Logic
+
+        function navigateTo(pageId) {
+
+            const mainContent = document.getElementById('main-content');
+
+            
+
+            // Scroll to top
+
+            window.scrollTo(0, 0);
+
+
+
+            // Update Content
+
+            if (content[pageId]) {
+
+                mainContent.innerHTML = content[pageId];
+
+            } else {
+
+                mainContent.innerHTML = content['home'];
+
+            }
+
+
+
+            // Update Active State in Nav
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+
+                if(link.getAttribute('data-target') === pageId) {
+
+                    link.classList.add('text-primary');
+
+                } else {
+
+                    link.classList.remove('text-primary');
+
+                }
+
+            });
+
+
+
+            // Close mobile menu if open
+
+            document.getElementById('mobile-menu').classList.add('hidden');
+
+        }
+
+
+
+        // Initialize
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            navigateTo('home');
+
+        });
+
+
+
+        function toggleMobileMenu() {
+
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
